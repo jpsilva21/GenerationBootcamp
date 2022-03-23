@@ -1,5 +1,7 @@
 CREATE DATABASE db_cidade_das_carnes;
 
+USE db_cidade_das_carnes;
+
 CREATE TABLE tb_categoria(
 	id bigint auto_increment,
     marca varchar(255),
@@ -79,6 +81,4 @@ SELECT * FROM tb_produtos
 INNER JOIN tb_categoria on tb_categoria.id = tb_produtos.id;
 
 SELECT * FROM tb_categoria
-INNER JOIN tb_produtos on tb_produtos.categoria_id = tb_categoria.id WHERE categoria_id = 3;
-
-
+INNER JOIN tb_produtos on tb_produtos.categoria_id = tb_categoria.id WHERE categoria_id = 5;
