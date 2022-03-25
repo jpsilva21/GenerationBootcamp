@@ -28,7 +28,7 @@ public class Postagens {
 	private String texto;
 	
 	@UpdateTimestamp
-	private LocalDateTime data;  //salve a data e hora do seu pc
+	private LocalDateTime data;  //salva a data e hora do seu pc
 
 	
 	//por ultimo faz o Get and Set
