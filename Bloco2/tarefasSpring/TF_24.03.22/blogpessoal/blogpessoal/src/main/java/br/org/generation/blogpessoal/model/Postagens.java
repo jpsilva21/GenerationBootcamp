@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity  //criar tabela
 @Table(name= "tb_postagens")  //tabela
@@ -20,16 +23,21 @@ public class Postagens {
 	private Long id;   //Atributo
 	
 	@NotNull
-	@Size(min=4, max=15)
+	@Size(min=4, max=40)
 	private String titulo;
 	
 	@NotNull
-	@Size(min=5, max=25)  //esse parenteses ñ é aceito no notnull ; poder ser só o minimo ou só maximo
+	@Size(min=5, max=100)  //esse parenteses ñ é aceito no notnull ; poder ser só o minimo ou só maximo
 	private String texto;
+	
+	
 	
 	@UpdateTimestamp
 	private LocalDateTime data;  //salva a data e hora do seu pc
-
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagens")
+	private Tema tema;
 	
 	//por ultimo faz o Get and Set
 	public Long getId() {
@@ -63,6 +71,14 @@ public class Postagens {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+
 	
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 	
 }
