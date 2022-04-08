@@ -31,13 +31,16 @@ public class Postagens {
 	private String texto;
 	
 	
-	
 	@UpdateTimestamp
 	private LocalDateTime data;  //salva a data e hora do seu pc
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagens")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("usuario")
+	private Usuario usuario;
 	
 	//por ultimo faz o Get and Set
 	public Long getId() {
