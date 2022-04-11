@@ -19,7 +19,7 @@ import br.org.generation.blogpessoal.model.Usuario;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)// para ñ criar conflito enquanto ta criando o teste, abre numa Porta Rondomica 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) //pra conseguir testar o test unitario
 public class UsuarioRepositoryTest {
-
+	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
