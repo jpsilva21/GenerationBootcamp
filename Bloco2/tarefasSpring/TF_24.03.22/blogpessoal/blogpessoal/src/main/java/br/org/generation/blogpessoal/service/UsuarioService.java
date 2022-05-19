@@ -45,6 +45,7 @@ public class UsuarioService {
 				usuarioLogin.get().setFoto(usuario.get().getFoto());
 				usuarioLogin.get().setToken(geradorBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 				usuarioLogin.get().setSenha(usuario.get().getSenha());
+				usuarioLogin.get().setTipo(usuario.get().getTipo());
 				
 				return usuarioLogin;
 			}
@@ -75,8 +76,8 @@ public class UsuarioService {
 	
 	public Optional<Usuario> atualizarUsuario (Usuario usuario) {
         if (usuarioRepository.findById(usuario.getId()).isPresent()) {
-
             Optional<Usuario> buscaUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
+           
             if ((buscaUsuario.isPresent())&& (buscaUsuario.get().getId() != usuario.getId()))
                     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario existente",null);
 

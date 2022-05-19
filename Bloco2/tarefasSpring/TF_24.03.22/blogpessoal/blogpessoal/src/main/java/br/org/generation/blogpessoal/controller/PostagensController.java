@@ -20,7 +20,7 @@ import br.org.generation.blogpessoal.repository.PostagensRepository;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostagensController {
 
 	@Autowired

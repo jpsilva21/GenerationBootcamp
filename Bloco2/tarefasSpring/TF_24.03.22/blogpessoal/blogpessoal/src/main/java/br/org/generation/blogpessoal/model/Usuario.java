@@ -36,8 +36,10 @@ public class Usuario {
 	
 	private String foto;
 	
+	private String tipo;
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties
+	@JsonIgnoreProperties("usuario")
 	private List<Postagens> postagens;
 	
 	
@@ -102,6 +104,14 @@ public class Usuario {
 
 	public void setPostagens(List<Postagens> postagens) {
 		this.postagens = postagens;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	
