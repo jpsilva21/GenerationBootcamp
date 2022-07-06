@@ -22,7 +22,7 @@ public class Postagens {
 		//letra maiuscula pq sim "Long"
 	private Long id;   //Atributo
 	
-	@NotNull
+	
 	@Size(min=4, max=40)
 	private String titulo;
 	
